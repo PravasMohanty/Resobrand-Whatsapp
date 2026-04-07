@@ -12,7 +12,9 @@ export default function PricingCard({ card }) {
       <div className="pricing-features">
         {card.items.map(([allowed, text]) => (
           <div className={`pricing-feature${allowed ? '' : ' off'}`} key={text}>
-            <span>{allowed ? 'OK' : 'No'}</span>
+            <span className={`pricing-check ${allowed ? 'tick' : 'cross'}`}>
+              {allowed ? '✓' : '✕'}
+            </span>
             <p>{text}</p>
           </div>
         ))}

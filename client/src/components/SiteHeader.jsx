@@ -22,17 +22,24 @@ export default function SiteHeader() {
         <NavLink className="brand" to="/" onClick={closeAll}>
           <img className="brand-logo" src="/logo-no-background.png" alt="Resobrand" />
         </NavLink>
+
         <button
           className="menu-toggle"
           type="button"
           aria-expanded={menuOpen}
+          aria-label="Toggle navigation menu"
           onClick={() => {
             setMenuOpen((open) => !open)
             setFeaturesOpen(false)
           }}
         >
-          Menu
+          <span className="hamburger-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </button>
+
         <nav className={`main-nav${menuOpen ? ' open' : ''}`}>
           <div className="nav-links">
             {navLinks.map(([label, to]) => (

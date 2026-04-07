@@ -18,7 +18,7 @@
   --border: rgba(255, 255, 255, 0.14);
   --border-strong: rgba(255, 255, 255, 0.24);
   --font-display: 'Readex Pro', sans-serif;
-  --font-body: 'Readex Pro', sans-serif;
+  --font-body: 'DM Sans', 'Readex Pro', sans-serif;
   color: var(--text-main);
   background: var(--bg);
   font-family: var(--font-body);
@@ -42,6 +42,7 @@ body {
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 24%),
     linear-gradient(180deg, #0d345d 0%, #001f3f 100%);
+  font-weight: 400;
 }
 
 body,
