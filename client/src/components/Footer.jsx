@@ -24,7 +24,9 @@ export default function Footer() {
       <footer className="site-footer">
         <div className="shell footer-grid">
           <div className="footer-brand">
-            <NavLink className="brand" to="/">Reso<span>brand</span></NavLink>
+            <NavLink className="brand" to="/">
+              <img className="brand-logo" src="/logo-no-background.png" alt="Resobrand" />
+            </NavLink>
             <p>React-powered site rebuilt from your provided HTML and updated content notes.</p>
           </div>
           <div className="footer-column">
