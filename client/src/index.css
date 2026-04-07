@@ -1,16 +1,24 @@
+@font-face {
+  font-family: 'Readex Pro';
+  src: url('/Readex Pro.ttf') format('truetype');
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --bg: #09100f;
-  --surface: #101b18;
-  --surface-2: #0d1715;
-  --brand: #26d366;
-  --brand-deep: #128c7e;
-  --accent: #fcb534;
-  --text-main: #f4fff7;
-  --text-soft: #8cab99;
-  --border: rgba(68, 128, 106, 0.34);
-  --border-strong: rgba(108, 196, 153, 0.32);
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --bg: #001f3f;
+  --surface: #0a2d52;
+  --surface-2: #082847;
+  --brand: #46a96f;
+  --brand-deep: #2f8d5e;
+  --accent: #dceaf1;
+  --text-main: #ffffff;
+  --text-soft: #d4e3eb;
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --font-display: 'Readex Pro', sans-serif;
+  --font-body: 'Readex Pro', sans-serif;
   color: var(--text-main);
   background: var(--bg);
   font-family: var(--font-body);
@@ -32,8 +40,8 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at top, rgba(252, 181, 52, 0.06), transparent 24%),
-    linear-gradient(180deg, #09100f 0%, #0a1513 100%);
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, #0d345d 0%, #001f3f 100%);
 }
 
 body,

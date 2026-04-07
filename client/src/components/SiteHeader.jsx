@@ -20,7 +20,7 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="shell header-row">
         <NavLink className="brand" to="/" onClick={closeAll}>
-          Reso<span>brand</span>
+          <img className="brand-logo" src="/logo-no-background.png" alt="Resobrand" />
         </NavLink>
         <button
           className="menu-toggle"
