@@ -9,6 +9,9 @@ import {
   whyChooseUs,
 } from '../data/siteData';
 
+const featureIcons = ['📢', '🤖', '⚡', '🧠', '📥', '📋', '🔗', '📊', '✅'];
+const benefitIcons = ['🛡️', '🌍', '🚀', '📬', '💬', '🤖', '🔗', '🎯', '📈'];
+
 export default function HomePage() {
   return (
     <>
@@ -17,8 +20,8 @@ export default function HomePage() {
           <div className="hero-copy">
             <span className="hero-badge">Meta Approved WhatsApp API</span>
             <h1>
-              Scale customer conversations with a smarter
-              <span> WhatsApp growth engine</span>
+              Scale faster with a smarter
+              <span> WhatsApp engine</span>
             </h1>
             <p>
               Launch campaigns, automate replies, manage team conversations, and track outcomes
@@ -66,6 +69,7 @@ export default function HomePage() {
           {stats.map(([value, label]) => (
             <article className="stat-card" key={label}>
               <strong>{value}</strong>
+              <br/>
               <span>{label}</span>
             </article>
           ))}
@@ -77,12 +81,12 @@ export default function HomePage() {
           <SectionHeading
             tag="Features"
             title="Everything your team needs to run WhatsApp at scale"
-            description="A 3 x 3 feature grid based on your notes and the provided HTML."
+            description="Bulk campaigns, AI agents, shared inbox, analytics, and integrations in one platform."
           />
           <div className="feature-grid">
-            {features.map(([icon, title, text]) => (
+            {features.map(([, title, text], index) => (
               <article className="feature-card" key={title}>
-                <span className="feature-icon">{icon}</span>
+                <span className="feature-icon">{featureIcons[index] || '⭐'}</span>
                 <h3>{title}</h3>
                 <p>{text}</p>
               </article>
@@ -95,8 +99,8 @@ export default function HomePage() {
         <div className="shell">
           <SectionHeading
             tag="How To Get Started"
-            title="A simple S1 to S2 to S3 to Done rollout"
-            description="Your timeline model translated into a cleaner React timeline section."
+            title="Go live in four simple steps"
+            description="Connect, configure, launch, and scale — with hands-on support at every step."
           />
           <div className="timeline-grid">
             {steps.map(([step, title, text]) => (
@@ -116,7 +120,7 @@ export default function HomePage() {
             <SectionHeading
               tag="Realtime Analytical Dashboard"
               title="See campaigns, replies, and team performance in one view"
-              description="This keeps the original visual intent and leaves a clear spot for your real demo video."
+              description="Track delivery, response times, team load, and conversion — all from a single dashboard."
             />
             <p className="supporting-copy">
               Monitor campaign delivery, response windows, team occupancy, conversion trends, and
@@ -127,7 +131,7 @@ export default function HomePage() {
             <div className="video-screen">
               <span>Dashboard Preview</span>
               <strong>Campaign ROI / Agent Load / Live Replies</strong>
-              <p>Video placeholder ready for your actual walkthrough.</p>
+              <p>Video placeholder — coming soon.</p>
             </div>
           </div>
         </div>
@@ -138,12 +142,12 @@ export default function HomePage() {
           <SectionHeading
             tag="Why Choose Us"
             title="Reasons teams choose Resobrand to power WhatsApp growth"
-            description="A full 3 x 3 grid to match the structure you asked for."
+            description="Built for compliance, speed, and real business outcomes."
           />
           <div className="benefit-grid">
-            {whyChooseUs.map((item) => (
+            {whyChooseUs.map((item, index) => (
               <article className="benefit-card" key={item}>
-                <span>OK</span>
+                <span className="benefit-icon">{benefitIcons[index] || '✓'}</span>
                 <p>{item}</p>
               </article>
             ))}
@@ -156,13 +160,13 @@ export default function HomePage() {
           <SectionHeading
             tag="Testimonials"
             title="Proof from teams already running WhatsApp with us"
-            description="Nine testimonial cards and a featured video/content panel."
+            description="Real results from clients in real estate, healthcare, e-commerce, and more."
           />
           <div className="testimonial-lead">
             <div>
               <span className="mini-tag">Customer Story Video</span>
               <h3>How teams move from scattered replies to one high-converting inbox</h3>
-              <p>Use this highlighted block for a featured video testimonial or founder walkthrough.</p>
+              <p>Watch how teams have transformed their WhatsApp workflows with Resobrand.</p>
             </div>
             <div className="video-mini">Play Demo Story</div>
           </div>
@@ -172,6 +176,7 @@ export default function HomePage() {
                 <p className="testimonial-quote">"{quote}"</p>
                 <div className="testimonial-meta">
                   <strong>{name}</strong>
+                <br/>
                   <span>{role}</span>
                 </div>
               </article>

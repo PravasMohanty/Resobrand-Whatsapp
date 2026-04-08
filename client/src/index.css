@@ -7,18 +7,18 @@
 }
 
 :root {
-  --bg: #001f3f;
-  --surface: #0a2d52;
-  --surface-2: #082847;
+  --bg: #0a1e36;
+  --surface: #06101e;
+  --surface-2: #081828;
   --brand: #46a96f;
   --brand-deep: #2f8d5e;
   --accent: #dceaf1;
   --text-main: #ffffff;
   --text-soft: #d4e3eb;
-  --border: rgba(255, 255, 255, 0.14);
-  --border-strong: rgba(255, 255, 255, 0.24);
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
   --font-display: 'Readex Pro', sans-serif;
-  --font-body: 'Readex Pro', sans-serif;
+  --font-body: 'DM Sans', 'Readex Pro', sans-serif;
   color: var(--text-main);
   background: var(--bg);
   font-family: var(--font-body);
@@ -39,9 +39,8 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 24%),
-    linear-gradient(180deg, #0d345d 0%, #001f3f 100%);
+  background: var(--bg);
+  font-weight: 400;
 }
 
 body,

@@ -13,7 +13,7 @@ export default function PricingPage() {
       <PageHero
         tag="Pricing"
         title="Straightforward pricing for every stage of growth"
-        description="Three pricing cards, clear allowed and not allowed states, add-ons, and the mandatory note."
+        description="Start free, upgrade as you grow. No hidden charges."
         actions={
           <>
             <NavLink className="button" to="/contact">Start Free Trial</NavLink>

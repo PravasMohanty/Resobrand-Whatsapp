@@ -27,7 +27,7 @@ export default function Footer() {
             <NavLink className="brand" to="/">
               <img className="brand-logo" src="/logo-no-background.png" alt="Resobrand" />
             </NavLink>
-            <p>React-powered site rebuilt from your provided HTML and updated content notes.</p>
+            <p>Scale your WhatsApp conversations with campaigns, AI, and a shared team inbox — built for India and the UAE.</p>
           </div>
           <div className="footer-column">
             <h4>Product</h4>
