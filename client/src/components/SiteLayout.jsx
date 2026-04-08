@@ -10,8 +10,10 @@ import CaseStudiesPage from '../pages/CaseStudiesPage';
 import ContactPage from '../pages/ContactPage';
 import FeaturePage from '../pages/FeaturePage';
 import HomePage from '../pages/HomePage';
+import Login from '../pages/login';
 import NotFoundPage from '../pages/NotFoundPage';
 import PricingPage from '../pages/PricingPage';
+import Register from '../pages/Register';
 import Footer from './Footer';
 import SiteHeader from './SiteHeader';
 
@@ -27,6 +29,8 @@ export default function SiteLayout() {
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           {featurePages.map((feature) => (
             <Route
               key={feature.slug}
