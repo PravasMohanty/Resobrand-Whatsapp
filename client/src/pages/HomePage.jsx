@@ -20,8 +20,8 @@ export default function HomePage() {
           <div className="hero-copy">
             <span className="hero-badge">Meta Approved WhatsApp API</span>
             <h1>
-              Scale customer conversations with a smarter
-              <span> WhatsApp growth engine</span>
+              Scale faster with a smarter
+              <span> WhatsApp engine</span>
             </h1>
             <p>
               Launch campaigns, automate replies, manage team conversations, and track outcomes
@@ -69,6 +69,7 @@ export default function HomePage() {
           {stats.map(([value, label]) => (
             <article className="stat-card" key={label}>
               <strong>{value}</strong>
+              <br/>
               <span>{label}</span>
             </article>
           ))}
@@ -175,6 +176,7 @@ export default function HomePage() {
                 <p className="testimonial-quote">"{quote}"</p>
                 <div className="testimonial-meta">
                   <strong>{name}</strong>
+                <br/>
                   <span>{role}</span>
                 </div>
               </article>
