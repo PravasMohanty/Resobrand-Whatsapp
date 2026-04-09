@@ -136,9 +136,9 @@ export default function HomePage() {
             </div>
             <h1>
               <span>Turn WhatsApp</span>
-              <span>Chats into</span>
-              <span className="hero-highlight">Sales —</span>
-              <span className="hero-highlight">Automatically</span>
+              <span>
+                Chats into <span className="hero-highlight">Sales Immediately</span>
+              </span>
             </h1>
             <p>
               Resobrand brings battle-tested Indian tech excellence to the UAE. Automate sales,
@@ -209,6 +209,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="shell">
+          <div className="hero-finish-line" aria-hidden="true" />
         </div>
 
         <div className="hero-strip">
@@ -376,9 +380,8 @@ export default function HomePage() {
             description="The product combines official setup, polished inbox design, automation, and practical analytics in one experience."
           />
           <div className="benefit-grid">
-            {whyChooseUs.map((item, index) => (
+            {whyChooseUs.map((item) => (
               <article className="benefit-card" key={item}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
                 <p>{item}</p>
               </article>
             ))}

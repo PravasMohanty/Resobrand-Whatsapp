@@ -15,7 +15,6 @@ export default function FeaturePage({ feature }) {
           <div className="feature-bullet-list">
             {feature.bullets.map((item) => (
               <article className="feature-bullet" key={item}>
-                <span>OK</span>
                 <p>{item}</p>
               </article>
             ))}
