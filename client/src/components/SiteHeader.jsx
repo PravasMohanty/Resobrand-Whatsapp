@@ -79,6 +79,13 @@ export default function SiteHeader() {
           <NavLink className="button nav-button" to="/contact" onClick={closeAll}>
             Book Demo
           </NavLink>
+          <NavLink className="button nav-button" to="/login" onClick={closeAll}>
+            Login
+          </NavLink>
+
+          <NavLink className="button nav-button" to="/register" onClick={closeAll}>
+           Registration
+          </NavLink>
         </nav>
       </div>
     </header>
