@@ -15,6 +15,7 @@ import NotFoundPage from '../pages/NotFoundPage';
 import PricingPage from '../pages/PricingPage';
 import Register from '../pages/Register';
 import Footer from './Footer';
+import FloatingChatWidget from './FloatingChatWidget';
 import SiteHeader from './SiteHeader';
 
 export default function SiteLayout() {
@@ -42,6 +43,7 @@ export default function SiteLayout() {
         </Routes>
       </main>
       <Footer />
+      <FloatingChatWidget />
     </div>
   )
 }

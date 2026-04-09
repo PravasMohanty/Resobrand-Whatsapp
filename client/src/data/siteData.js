@@ -1,6 +1,7 @@
 export const navLinks = [
   ['Home', '/'],
   ['About', '/about'],
+  ['Services', '/features/ban-proof-api'],
   ['Pricing', '/pricing'],
   ['Case Studies', '/case-studies'],
   ['Blog', '/blog'],
@@ -88,15 +89,15 @@ export const stats = [
 ]
 
 export const features = [
-  ['01', 'WhatsApp Campaigns', 'Run bulk messages, launches, festive offers, and remarketing flows.'],
-  ['02', 'Smart Chatbot', 'Answer FAQs, qualify leads, and route intent before a human agent joins.'],
-  ['03', 'Automated Replies', 'Use triggers, templates, and business-hour logic to respond instantly.'],
-  ['04', 'AI Agent', 'Deploy AI-powered conversation helpers for repetitive support and sales tasks.'],
-  ['05', 'Unified Team Inbox', 'Give your team one shared space for every incoming WhatsApp chat.'],
-  ['06', 'Lead Imports', 'Bring contacts from CSV files, sheets, and CRM exports into clean lists.'],
-  ['07', 'Webhook Integrations', 'Push chat activity into your CRM, forms, and internal automations.'],
-  ['08', 'Realtime Analytics', 'Track delivery, reply rate, conversion, and agent performance live.'],
-  ['09', 'Meta Approved Setup', 'Go live with compliance support and number-health best practices.'],
+  ['campaigns', 'WhatsApp Campaigns', 'Run bulk messages, launches, festive offers, and remarketing flows.'],
+  ['chatbot', 'Smart Chatbot', 'Answer FAQs, qualify leads, and route intent before a human agent joins.'],
+  ['replies', 'Automated Replies', 'Use triggers, templates, and business-hour logic to respond instantly.'],
+  ['ai', 'AI Agent', 'Deploy AI-powered conversation helpers for repetitive support and sales tasks.'],
+  ['inbox', 'Unified Team Inbox', 'Give your team one shared space for every incoming WhatsApp chat.'],
+  ['imports', 'Lead Imports', 'Bring contacts from CSV files, sheets, and CRM exports into clean lists.'],
+  ['integrations', 'Webhook Integrations', 'Push chat activity into your CRM, forms, and internal automations.'],
+  ['analytics', 'Realtime Analytics', 'Track delivery, reply rate, conversion, and agent performance live.'],
+  ['approved', 'Meta Approved Setup', 'Go live with compliance support and number-health best practices.'],
 ]
 
 export const steps = [

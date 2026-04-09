@@ -13,7 +13,7 @@ export default function PricingPage() {
       <PageHero
         tag="Pricing"
         title="Straightforward pricing for every stage of growth"
-        description="Three pricing cards, clear allowed and not allowed states, add-ons, and the mandatory note."
+        description="Compare plans in a cleaner pricing table layout with clear monthly value, yearly billing context, and feature-by-feature visibility."
         actions={
           <>
             <NavLink className="button" to="/contact">Start Free Trial</NavLink>
@@ -24,12 +24,12 @@ export default function PricingPage() {
 
       <section className="section-block">
         <div className="shell">
-          <div className="pricing-grid">
+          <div className="pricing-grid pricing-compare-grid">
             {pricing.map((card) => (
               <PricingCard card={card} key={card.name} />
             ))}
           </div>
-          <div className="addons-row">
+          <div className="addons-row pricing-addon-row">
             {addons.map(([name, price]) => (
               <article className="addon-card" key={name}>
                 <span>{name}</span>

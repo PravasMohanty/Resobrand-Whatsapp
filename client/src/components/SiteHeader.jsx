@@ -2,37 +2,22 @@ import { useState } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-import {
-  featurePages,
-  navLinks,
-} from '../data/siteData';
+import { navLinks } from '../data/siteData';
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [featuresOpen, setFeaturesOpen] = useState(false)
 
   function closeAll() {
     setMenuOpen(false)
-    setFeaturesOpen(false)
   }
 
   return (
     <header className="site-header">
-      <div className="shell header-row">
+      <div className="shell header-shell header-row">
         <NavLink className="brand" to="/" onClick={closeAll}>
           <img className="brand-logo" src="/logo-no-background.png" alt="Resobrand" />
         </NavLink>
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-expanded={menuOpen}
-          onClick={() => {
-            setMenuOpen((open) => !open)
-            setFeaturesOpen(false)
-          }}
-        >
-          Menu
-        </button>
+
         <nav className={`main-nav${menuOpen ? ' open' : ''}`}>
           <div className="nav-links">
             {navLinks.map(([label, to]) => (
@@ -45,41 +30,23 @@ export default function SiteHeader() {
                 {label}
               </NavLink>
             ))}
-            <div className={`feature-dropdown${featuresOpen ? ' open' : ''}`}>
-              <button
-                className="feature-dropdown-button"
-                type="button"
-                aria-expanded={featuresOpen}
-                onClick={() => setFeaturesOpen((open) => !open)}
-              >
-                Features
-                <span className="dropdown-arrow">▾</span>
-              </button>
-              <div className="feature-dropdown-menu">
-                {featurePages.map((item) => (
-                  <NavLink
-                    key={item.slug}
-                    className="dropdown-link"
-                    to={`/features/${item.slug}`}
-                    onClick={closeAll}
-                  >
-                    {item.nav}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
           </div>
-          <NavLink className="button nav-button" to="/contact" onClick={closeAll}>
-            Book Demo
-          </NavLink>
-          <NavLink className="button nav-button" to="/login" onClick={closeAll}>
-            Login
+        </nav>
+
+        <div className="header-end">
+          <NavLink className="button nav-button cta-button nav-cta-desktop" to="/contact" onClick={closeAll}>
+            Get Free Demo
           </NavLink>
 
-          <NavLink className="button nav-button" to="/register" onClick={closeAll}>
-           Registration
-          </NavLink>
-        </nav>
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            Menu
+          </button>
+        </div>
       </div>
     </header>
   )
