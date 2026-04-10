@@ -6,7 +6,7 @@ export default function Footer() {
       <section className="pre-footer">
         <div className="shell pre-footer-grid">
           <div>
-            <span className="mini-tag">Pre Footer</span>
+            {/* <span className="mini-tag">Pre Footer</span> */}
             <h3>Need a tailored rollout plan for your team?</h3>
             <p>
               We can shape the inbox, campaigns, automations, and reporting around your exact
