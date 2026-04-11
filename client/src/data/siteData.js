@@ -1,6 +1,7 @@
 export const navLinks = [
   ['Home', '/'],
   ['About', '/about'],
+  ['Features', '/#features'],
   ['Services', '/features/ban-proof-api'],
   ['Pricing', '/pricing'],
   ['Case Studies', '/case-studies'],
@@ -210,4 +211,28 @@ export const cases = [
   'Automotive showroom leads routed instantly to the nearest sales advisor.',
   'D2C restock alert campaigns that turned waitlists into same-day orders.',
   'Service-business follow-up flows that reduced missed callbacks.',
+]
+
+export const heroMetrics = [
+  ['3x', 'Higher Conversions'],
+  ['24/7', 'Automated Replies'],
+  ['90%', 'Time Saved'],
+]
+
+export const heroMessages = [
+  ['left', 'Hi! How can I help your UAE business today?', '10:02 AM'],
+  ['right', 'I need bulk marketing for Ramadan offers', '10:02 AM'],
+  ['left', 'Perfect! Our campaigns reach 10,000+ customers instantly. Book a free demo?', '10:02 AM'],
+]
+
+export const heroStats = [
+  ['200+', 'UAE Clients', 'floating-left'],
+  ['98%', 'Message Open Rate', 'floating-top'],
+  ['3x', 'Revenue Growth', 'floating-bottom'],
+]
+
+export const dashboardHighlights = [
+  'Quick product walkthrough',
+  'Optimized for desktop and mobile',
+  'Ready to swap with your real demo',
 ]

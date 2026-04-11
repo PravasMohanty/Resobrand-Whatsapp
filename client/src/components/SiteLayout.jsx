@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
+
 import {
   Route,
   Routes,
+  useLocation,
 } from 'react-router-dom';
+
 
 import { featurePages } from '../data/siteData';
 import AboutPage from '../pages/AboutPage';
@@ -19,6 +23,15 @@ import FloatingChatWidget from './FloatingChatWidget';
 import SiteHeader from './SiteHeader';
 
 export default function SiteLayout() {
+  const { pathname, hash } = useLocation()
+
+  // Scroll to top on every page navigation (skip if hash link like /#features)
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, hash])
+
   return (
     <div className="app-shell">
       <SiteHeader />

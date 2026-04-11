@@ -2,8 +2,7 @@ import { useState } from 'react';
 
 import { NavLink } from 'react-router-dom';
 
-const WHATSAPP_LINK =
-  'https://wa.me/918181010404?text=Hi%20Resobrand%2C%20I%20want%20to%20know%20more%20about%20your%20WhatsApp%20automation.';
+const WHATSAPP_LINK = import.meta.env.VITE_WHATSAPP_LINK;
 
 export default function FloatingChatWidget() {
   const [open, setOpen] = useState(false)

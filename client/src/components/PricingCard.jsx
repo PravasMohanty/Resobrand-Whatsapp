@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 export default function PricingCard({ card }) {
   return (
     <article className={`pricing-card pricing-compare-card${card.featured ? ' featured' : ''}`}>
+      {card.featured && <span className="pricing-recommended">★ Recommended</span>}
       <div className="pricing-card-head">
         <p className="pricing-name">{card.name}</p>
         <p className="pricing-subtext">{card.subtext}</p>

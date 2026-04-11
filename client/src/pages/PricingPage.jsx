@@ -1,7 +1,6 @@
-import { NavLink } from 'react-router-dom';
-
 import PageHero from '../components/PageHero';
 import PricingCard from '../components/PricingCard';
+import SectionHeading from '../components/SectionHeading';
 import {
   addons,
   pricing,
@@ -14,13 +13,23 @@ export default function PricingPage() {
         tag="Pricing"
         title="Straightforward pricing for every stage of growth"
         description="Compare plans in a cleaner pricing table layout with clear monthly value, yearly billing context, and feature-by-feature visibility."
-        actions={
-          <>
-            <NavLink className="button" to="/contact">Start Free Trial</NavLink>
-            <NavLink className="button button-outline" to="/contact">Talk to Sales</NavLink>
-          </>
-        }
       />
+
+      <section className="section-block muted">
+        <div className="shell">
+          <SectionHeading
+            tag="Features"
+            title="Want more detail?"
+            description="Jump to the homepage features section for a closer look at what the product offers."
+            fullWidth
+          />
+          <div className="page-actions">
+            <a className="button hero-secondary-button" href="/#features">
+              View Homepage Features
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section className="section-block">
         <div className="shell">
