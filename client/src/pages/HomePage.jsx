@@ -18,6 +18,9 @@ import {
   whyChooseUs,
 } from '../data/siteData';
 
+const featureIcons = ['📢', '🤖', '⚡', '🧠', '📥', '📋', '🔗', '📊', '✅'];
+const benefitIcons = ['🛡️', '🌍', '🚀', '📬', '💬', '🤖', '🔗', '🎯', '📈'];
+
 export default function HomePage() {
   return (
     <>
