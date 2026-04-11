@@ -46,15 +46,15 @@ export default function ContactPage() {
 
           <div className="contact-side">
             <article className="contact-info-card">
-              <span>Email : </span>
+              <span>Email:&nbsp;</span>
               <strong>hello@resobrand.com</strong>
             </article>
             <article className="contact-info-card">
-              <span>Support Window : </span>
+              <span>Support Window:&nbsp;</span>
               <strong>24/7 rollout assistance</strong>
             </article>
             <article className="contact-info-card">
-              <span>Markets : </span>
+              <span>Markets:&nbsp;</span>
               <strong>India / UAE / Remote-first delivery</strong>
             </article>
             <div className="contact-promise">

@@ -45,11 +45,12 @@ export default function AboutPage() {
             tag="Team"
             title="Meet the people behind the platform"
             description="A 3 by 3 team grid, just like your notes requested."
+            fullWidth
           />
           <div className="team-grid">
-            {team.map((role, index) => (
+            {team.map((role) => (
               <article className="team-card" key={role}>
-                <div className="team-avatar">R{index + 1}</div>
+                <div className="team-avatar" aria-hidden="true" />
                 <h3>{role}</h3>
                 <p>Focused on building a smoother WhatsApp growth experience for every client.</p>
               </article>

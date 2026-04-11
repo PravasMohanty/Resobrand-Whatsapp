@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700;800&display=swap');
+
 @font-face {
   font-family: 'Readex Pro';
   src: url('/Readex Pro.ttf') format('truetype');
@@ -7,16 +9,18 @@
 }
 
 :root {
-  --bg: #0a1e36;
-  --surface: #06101e;
-  --surface-2: #081828;
+  --bg: #081b2c;
+  --surface: #0d2436;
+  --surface-2: #102a3f;
   --brand: #46a96f;
   --brand-deep: #2f8d5e;
+  --brand-bright: #61bf84;
   --accent: #dceaf1;
   --text-main: #ffffff;
   --text-soft: #d4e3eb;
-  --border: rgba(255, 255, 255, 0.10);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --surface-card: #06101e;
   --font-display: 'Readex Pro', sans-serif;
   --font-body: 'DM Sans', 'Readex Pro', sans-serif;
   color: var(--text-main);
@@ -39,7 +43,9 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 22%),
+    linear-gradient(180deg, #0a2032 0%, #081b2c 100%);
   font-weight: 400;
 }
 
