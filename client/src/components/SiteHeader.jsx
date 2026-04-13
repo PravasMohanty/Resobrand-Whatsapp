@@ -1,6 +1,15 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import {
+  NavLink,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 
 import { navLinks } from '../data/siteData';
 
