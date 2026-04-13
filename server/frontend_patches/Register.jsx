@@ -94,6 +94,7 @@ const Register = () => {
         return;
       }
 
+      // Redirect to login with success message
       navigate('/login', { state: { message: 'Account created! Please verify your email, then log in.' } });
     } catch {
       setError('Network error. Please check your connection.');
@@ -109,14 +110,6 @@ const Register = () => {
   return (
     <div className="app-shell muted">
       <div className="shell">
-
-        {/* Invisible overlay — closes dropdown when clicking outside */}
-        {dropdownOpen && (
-          <div
-            style={{ position: 'fixed', inset: 0, zIndex: 9 }}
-            onClick={() => setDropdownOpen(false)}
-          />
-        )}
 
         <div className="page-hero">
           <h2>Create an Account</h2>
@@ -190,8 +183,7 @@ const Register = () => {
             <label>
               Contact Number
               <div style={{ display: 'flex', gap: '10px' }}>
-
-                <div style={{ position: 'relative', width: '130px', flexShrink: 0, zIndex: 10 }}>
+                <div style={{ position: 'relative', width: '130px', flexShrink: 0 }}>
                   <input
                     type="text"
                     placeholder={formData.countryCode}
@@ -210,7 +202,7 @@ const Register = () => {
                       position: 'absolute', top: '100%', left: 0, right: 0,
                       backgroundColor: '#0a2d52', border: '1px solid rgba(255,255,255,0.24)',
                       borderTop: 'none', borderRadius: '0 0 8px 8px',
-                      maxHeight: '200px', overflowY: 'auto', zIndex: 11,
+                      maxHeight: '200px', overflowY: 'auto', zIndex: 10,
                       boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
                     }}>
                       {filteredCodes.map((code, i) => (
@@ -225,7 +217,6 @@ const Register = () => {
                     </div>
                   )}
                 </div>
-
                 <input type="tel" name="phone" placeholder="00000 00000"
                   value={formData.phone} onChange={handleChange}
                   style={{ flexGrow: 1 }} required />

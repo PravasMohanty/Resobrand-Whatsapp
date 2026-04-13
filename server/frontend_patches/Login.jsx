@@ -39,8 +39,7 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(data.data.user));
 
       // Redirect to dashboard (adjust route as needed)
-      // navigate('/dashboard');
-      window.location.href = '/#/';
+      navigate('/dashboard');
     } catch (err) {
       setError('Network error. Please check your connection.');
     } finally {

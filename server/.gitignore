@@ -1,0 +1,4 @@
+# create this file: server/.gitignore
+node_modules/
+.env
+logs/
