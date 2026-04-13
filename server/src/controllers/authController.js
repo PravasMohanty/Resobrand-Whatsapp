@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 const prisma = require('../prisma/client');
-const { signAccessToken, signRefreshToken, verifyRefreshToken } = require('../utils/jwt');
+const { signRefreshToken, verifyRefreshToken } = require('../utils/jwt');
 const { ApiError, asyncHandler } = require('../utils/apiError');
 const { audit } = require('../utils/audit');
 const {
@@ -10,32 +10,14 @@ const {
   sendWelcomeEmail,
 } = require('../utils/email');
 const { cacheGet, cacheSet, cacheDel } = require('../config/redis');
+const {
+  REFRESH_TOKEN_TTL_DAYS,
+  setRefreshCookie,
+  clearRefreshCookie,
+  buildUserPayload,
+  createTokens,
+} = require('../utils/authHelpers');
 const config = require('../config');
-
-// ─── HELPERS ──────────────────────────────────────────────────────────────────
-
-const REFRESH_TOKEN_TTL_DAYS = 7;
-
-const setRefreshCookie = (res, token) => {
-  res.cookie('refreshToken', token, {
-    httpOnly: true,
-    secure: config.nodeEnv === 'production',
-    sameSite: 'strict',
-    maxAge: REFRESH_TOKEN_TTL_DAYS * 24 * 60 * 60 * 1000,
-    path: '/api/auth',
-  });
-};
-
-const clearRefreshCookie = (res) => {
-  res.clearCookie('refreshToken', { path: '/api/auth' });
-};
-
-const buildUserPayload = (user) => ({
-  userId: user.id,
-  email: user.email,
-  role: user.role,
-  plan: user.subscription?.plan || 'FREE',
-});
 
 // ─── REGISTER ─────────────────────────────────────────────────────────────────
 
@@ -121,9 +103,7 @@ exports.login = asyncHandler(async (req, res) => {
 
   if (!user.isActive) throw ApiError.unauthorized('Your account has been deactivated. Contact support.');
 
-  const payload = buildUserPayload(user);
-  const accessToken = signAccessToken(payload);
-  const refreshTokenStr = signRefreshToken(payload);
+  const { accessToken, refreshToken: refreshTokenStr } = createTokens(user);
 
   // Persist refresh token in DB
   const expiresAt = new Date(Date.now() + REFRESH_TOKEN_TTL_DAYS * 24 * 60 * 60 * 1000);
@@ -188,9 +168,7 @@ exports.refreshToken = asyncHandler(async (req, res) => {
 
   if (!user || !user.isActive) throw ApiError.unauthorized('User not found or inactive.');
 
-  const payload = buildUserPayload(user);
-  const newAccessToken = signAccessToken(payload);
-  const newRefreshToken = signRefreshToken(payload);
+  const { accessToken: newAccessToken, refreshToken: newRefreshToken } = createTokens(user);
 
   const expiresAt = new Date(Date.now() + REFRESH_TOKEN_TTL_DAYS * 24 * 60 * 60 * 1000);
   await prisma.refreshToken.create({

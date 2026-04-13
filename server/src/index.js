@@ -1,16 +1,11 @@
 require('dotenv').config();
 
 const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const compression = require('compression');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
-const rateLimit = require('express-rate-limit');
 
 const config = require('./config');
 const logger = require('./utils/logger');
 const { errorHandler, notFoundHandler } = require('./middleware/errorHandler');
+const { setupApp } = require('./utils/appSetup');
 
 // ─── ROUTE IMPORTS ────────────────────────────────────────────────────────────
 const authRoutes = require('./routes/auth.routes');
@@ -20,33 +15,7 @@ const subscriptionRoutes = require('./routes/subscription.routes');
 
 // ─── APP SETUP ────────────────────────────────────────────────────────────────
 const app = express();
-
-// Trust proxy (needed for correct req.ip behind Nginx/load balancer)
-app.set('trust proxy', 1);
-
-// ─── SECURITY ─────────────────────────────────────────────────────────────────
-app.use(helmet());
-
-app.use(
-  cors({
-    origin: config.clientUrl,
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
-
-// Global rate limit – generous, specific routes have tighter limits
-app.use(
-  '/api',
-  rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 500,
-    standardHeaders: true,
-    legacyHeaders: false,
-    message: { success: false, message: 'Rate limit exceeded. Please slow down.' },
-  })
-);
+setupApp(app);
 
 // ─── RAZORPAY WEBHOOK (needs raw body BEFORE json parser) ─────────────────────
 app.post(
@@ -58,22 +27,6 @@ app.post(
   },
   require('./controllers/subscriptionController').razorpayWebhook
 );
-
-// ─── BODY PARSERS ─────────────────────────────────────────────────────────────
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use(cookieParser());
-app.use(compression());
-
-// ─── LOGGING ──────────────────────────────────────────────────────────────────
-if (config.nodeEnv !== 'test') {
-  app.use(
-    morgan('combined', {
-      stream: { write: (msg) => logger.http(msg.trim()) },
-      skip: (req) => req.path === '/api/health',
-    })
-  );
-}
 
 // ─── HEALTH CHECK ─────────────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {
@@ -106,14 +59,12 @@ app.use('/api/automations', stubRouter);
 app.use('/api/analytics', stubRouter);
 app.use('/api/integrations', stubRouter);
 
-// ─── ERROR HANDLERS ───────────────────────────────────────────────────────────
+// ─── ERROR HANDLING ───────────────────────────────────────────────────────────
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-// ─── START ────────────────────────────────────────────────────────────────────
 const startServer = async () => {
   try {
-    // Test DB connection
     const prisma = require('./prisma/client');
     await prisma.$connect();
     logger.info('Database connected');
@@ -128,7 +79,9 @@ const startServer = async () => {
   }
 };
 
-startServer();
+if (require.main === module) {
+  startServer();
+}
 
 // Graceful shutdown
 process.on('SIGTERM', async () => {
@@ -137,4 +90,5 @@ process.on('SIGTERM', async () => {
   process.exit(0);
 });
 
-module.exports = app; // exported for testing
+module.exports = app;
+
