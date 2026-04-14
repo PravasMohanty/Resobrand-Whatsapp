@@ -6,7 +6,6 @@ import {
   useLocation,
 } from 'react-router-dom';
 
-
 import { featurePages } from '../data/siteData';
 import AboutPage from '../pages/AboutPage';
 import BlogPage from '../pages/BlogPage';
@@ -14,12 +13,12 @@ import CaseStudiesPage from '../pages/CaseStudiesPage';
 import ContactPage from '../pages/ContactPage';
 import FeaturePage from '../pages/FeaturePage';
 import HomePage from '../pages/HomePage';
-import Login from '../pages/login';
+import Login from '../pages/Login';
 import NotFoundPage from '../pages/NotFoundPage';
 import PricingPage from '../pages/PricingPage';
 import Register from '../pages/Register';
-import Footer from './Footer';
 import FloatingChatWidget from './FloatingChatWidget';
+import Footer from './Footer';
 import SiteHeader from './SiteHeader';
 
 export default function SiteLayout() {
