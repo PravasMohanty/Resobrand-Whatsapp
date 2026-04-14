@@ -284,20 +284,10 @@ export default function HomePage() {
           centered={true}
         />
         <div className="shell">
-          <div className="testimonial-lead">
-            <div>
-              <span className="mini-tag">Featured Story</span>
-              <h3>From scattered chats to one organized conversion engine</h3>
-              <p>
-                Use this space for your strongest customer proof, founder walkthrough, or product
-                story video.
-              </p>
-            </div>
-            <div className="video-mini">Play Demo Story</div>
-          </div>
+          
           <div className="testimonial-grid">
-            {testimonials.map(([name, role, quote]) => (
-              <TestimonialCard key={name} name={name} role={role} quote={quote} />
+            {testimonials.map(({name, role, company, quote}) => (
+              <TestimonialCard key={name} name={name} role={role} company={company} quote={quote} />
             ))}
           </div>
         </div>

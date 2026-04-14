@@ -37,15 +37,17 @@
 
 .brand {
   color: var(--text-main);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-self: start;
+  height: 100%;
 }
 
 .brand-logo {
   display: block;
   width: auto;
-  height: 44px;
+  height: 100%;
+  object-fit: contain;
 }
 
 .main-nav {
@@ -557,19 +559,9 @@
 .testimonial-lead,
 .testimonial-card,
 .cta-panel,
-.about-panel,
-.about-points article,
 .team-card,
 .pricing-card,
 .addon-card,
-.note-card,
-.case-card,
-.coming-soon-card,
-.contact-form,
-.contact-info-card,
-.contact-promise,
-.feature-page-panel,
-.feature-bullet,
 .pre-footer,
 .site-footer {
   border: 1px solid var(--border);
@@ -597,7 +589,17 @@
 
 .feature-card,
 .benefit-card,
-.testimonial-card {
+.testimonial-card,
+.about-points article,
+.about-panel,
+.note-card,
+.case-card,
+.contact-info-card,
+.contact-form,
+.contact-promise,
+.feature-page-panel,
+.coming-soon-card,
+.feature-bullet {
   background: var(--surface-card);
   border-color: rgba(255, 255, 255, 0.08);
 }
@@ -730,14 +732,18 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.avatar,
-.team-avatar {
+.avatar {
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--brand), #176f58);
   color: #08100d;
   font-weight: 800;
+}
+
+.team-avatar {
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .avatar {
@@ -1149,11 +1155,11 @@
 .timeline-step,
 .video-mini,
 .case-index {
-  display: inline-grid;
+  display: grid;
   place-items: center;
-  min-width: 58px;
-  min-height: 58px;
-  border-radius: 18px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -1163,15 +1169,15 @@
 }
 
 .feature-glyph {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
 }
 
 .feature-card,
 .benefit-card,
 .feature-bullet {
   display: grid;
-  gap: 12px;
+  gap: 8px;
 }
 
 .feature-card h3 {
@@ -1346,8 +1352,8 @@
   max-width: 560px;
   margin: 0;
   font-size: 1rem;
-  background: #ffffff;
-  color: #1f4d94;
+  /* background: #ffffff; */
+  color: #ffffff;
 }
 
 .analytics-highlight-row {
@@ -1715,6 +1721,7 @@
   width: 58px;
   height: 58px;
   margin-bottom: 16px;
+  display: block;
 }
 
 /* ── Pricing ── */
@@ -1746,8 +1753,8 @@
 
 .pricing-recommended {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 2px;
+  right: 10px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -2178,7 +2185,7 @@
 }
 
 .footer-brand-logo {
-  height: 36px;
+  height: 44px;
 }
 
 .footer-brand-panel p {

@@ -1,7 +1,6 @@
 export const navLinks = [
   ['Home', '/'],
   ['About', '/about'],
-  ['Features', '/#features'],
   ['Services', '/features/ban-proof-api'],
   ['Pricing', '/pricing'],
   ['Case Studies', '/case-studies'],
@@ -121,15 +120,78 @@ export const whyChooseUs = [
 ]
 
 export const testimonials = [
-  ['Aarav Malhotra', 'Growth Lead, Dubai Realty Hub', 'Their campaign flow gave our sales team a much cleaner pipeline within the first week.'],
-  ['Sara Khan', 'Customer Ops, GulfCart', 'The shared inbox removed support confusion and made ownership obvious.'],
-  ['Faisal Ahmed', 'Director, MedCare Clinics', 'We moved from manual replies to AI-led intake and cut response times dramatically.'],
-  ['Nidhi Sharma', 'Marketing Manager, LearnSphere', 'Import plus broadcast workflows saved our team days every month.'],
-  ['Omar Rashid', 'Founder, RetailX', 'The analytics dashboard made it obvious which campaigns were driving actual revenue.'],
-  ['Mehak Bansal', 'RevOps, TravelNest', 'CRM sync and a workflow tailored to our sales process made the difference.'],
-  ['Zain Qureshi', 'Operations Head, AutoLane', 'The product feels modern and the rollout stayed on track.'],
-  ['Priya Mehta', 'Brand Manager, UrbanGlow', 'Campaign delivery improved after they cleaned up our messaging strategy.'],
-  ['Neha Bedi', 'COO, FinServe Connect', 'We wanted one WhatsApp layer for sales and service, and that is exactly what we got.'],
+  {
+    name: "Aarav Malhotra",
+    role: "Growth Lead",
+    company: "Dubai Realty Hub",
+    quote: "Their campaign flow gave our sales team a much cleaner pipeline within the first week.",
+    metric: "1 week",
+    metricLabel: "to cleaner pipeline"
+  },
+  {
+    name: "Sara Khan",
+    role: "Customer Ops",
+    company: "GulfCart",
+    quote: "The shared inbox removed support confusion and made ownership obvious.",
+    metric: null,
+    metricLabel: null
+  },
+  {
+    name: "Faisal Ahmed",
+    role: "Director",
+    company: "MedCare Clinics",
+    quote: "We moved from manual replies to AI-led intake and cut response times dramatically.",
+    metric: "AI-led",
+    metricLabel: "intake workflow"
+  },
+  {
+    name: "Nidhi Sharma",
+    role: "Marketing Manager",
+    company: "LearnSphere",
+    quote: "Import plus broadcast workflows saved our team days every month.",
+    metric: "days/mo",
+    metricLabel: "saved per month"
+  },
+  {
+    name: "Omar Rashid",
+    role: "Founder",
+    company: "RetailX",
+    quote: "The analytics dashboard made it obvious which campaigns were driving actual revenue.",
+    metric: null,
+    metricLabel: null
+  },
+  {
+    name: "Mehak Bansal",
+    role: "RevOps",
+    company: "TravelNest",
+    quote: "CRM sync and a workflow tailored to our sales process made the difference.",
+    metric: null,
+    metricLabel: null
+  },
+  {
+    name: "Zain Qureshi",
+    role: "Operations Head",
+    company: "AutoLane",
+    quote: "The product feels modern and the rollout stayed on track.",
+    metric: null,
+    metricLabel: null
+  },
+  {
+    name: "Priya Mehta",
+    role: "Brand Manager",
+    company: "UrbanGlow",
+    quote: "Campaign delivery improved after they cleaned up our messaging strategy.",
+    metric: null,
+    metricLabel: null
+  },
+  {
+    name: "Neha Bedi",
+    role: "COO",
+    company: "FinServe Connect",
+    quote: "We wanted one WhatsApp layer for sales and service, and that is exactly what we got.",
+    metric: null,
+    metricLabel: null
+  },
 ]
 
 export const team = [
@@ -143,6 +205,11 @@ export const team = [
   'Data Analyst',
   'Success Manager',
 ]
+
+export const teamAvatars = team.reduce((acc, role) => {
+  acc[role] = '/userlogo.png'
+  return acc
+}, {})
 
 export const pricing = [
   {
