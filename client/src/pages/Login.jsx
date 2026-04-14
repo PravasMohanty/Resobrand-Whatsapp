@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+import { Link } from 'react-router-dom';
+import api from '../api/axios';
 
 const Login = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -20,29 +18,14 @@ const Login = () => {
     setError('');
 
     try {
-      const res = await fetch(`${API_BASE}/api/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include', // sends/receives cookies (refresh token)
-        body: JSON.stringify(formData),
-      });
+      const { data } = await api.post('/api/auth/login', formData);
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.message || 'Login failed. Please try again.');
-        return;
-      }
-
-      // Persist access token in memory / localStorage
       localStorage.setItem('accessToken', data.data.accessToken);
       localStorage.setItem('user', JSON.stringify(data.data.user));
 
-      // Redirect to dashboard (adjust route as needed)
-      // navigate('/dashboard');
-      window.location.href = '/#/';
+      window.location.replace('http://localhost:5173/#/');
     } catch (err) {
-      setError('Network error. Please check your connection.');
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }

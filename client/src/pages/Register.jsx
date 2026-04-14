@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import api from '../api/axios';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 
 const countryCodes = [
   "+93 (AF)", "+355 (AL)", "+213 (DZ)", "+376 (AD)", "+244 (AO)", "+54 (AR)", "+374 (AM)",
@@ -74,26 +75,7 @@ const Register = () => {
         address: formData.address,
       };
 
-      const res = await fetch(`${API_BASE}/api/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        if (data.errors?.length) {
-          const errs = {};
-          data.errors.forEach(({ field, message }) => { errs[field] = message; });
-          setFieldErrors(errs);
-        } else {
-          setError(data.message || 'Registration failed.');
-        }
-        return;
-      }
-
+      const { data } = await api.post('/api/auth/register', payload);
       navigate('/login', { state: { message: 'Account created! Please verify your email, then log in.' } });
     } catch {
       setError('Network error. Please check your connection.');
