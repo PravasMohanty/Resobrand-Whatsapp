@@ -177,13 +177,9 @@ export default function HomePage() {
           centered={true}
         />
         <div className="shell">
-          <div className="timeline-grid timeline-flow">
-            <div className="timeline-track" aria-hidden="true">
-              <span className="timeline-track-line" />
-              <span className="timeline-track-glow" />
-            </div>
-            {steps.map(([, title, text], index) => (
-              <TimelineCard key={title} title={title} text={text} index={index} />
+          <div className="conversion-flow-grid">
+            {steps.map(([stepNum, title, text], index) => (
+              <TimelineCard key={title} stepNum={stepNum} title={title} text={text} index={index} />
             ))}
           </div>
         </div>

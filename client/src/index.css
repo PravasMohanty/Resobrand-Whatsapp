@@ -70,3 +70,94 @@ svg {
 #root {
   min-height: 100vh;
 }
+
+/* ── Conversion Step Flow ── */
+.conversion-flow-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+@media (max-width: 768px) {
+  .conversion-flow-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .conversion-step-arrow {
+    transform: rotate(90deg);
+    margin: 16px 0;
+  }
+}
+.conversion-step-card {
+  flex: 1;
+  position: relative;
+  background: #0B1120;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: none;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.conversion-step-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(70, 169, 111, 0.24);
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.55),
+    0 22px 50px rgba(0, 0, 0, 0.22);
+}
+.conversion-step-badge {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 44px;
+  height: 44px;
+  background: var(--brand);
+  color: white;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 0 20px rgba(70, 169, 111, 0.5);
+}
+.conversion-step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #112A27;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+}
+.conversion-step-arrow {
+  color: #1a4a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.conversion-step-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+.conversion-step-copy h3 {
+  margin: 0 0 16px 0;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.conversion-step-copy p {
+  margin: 0;
+  color: #8b9bb4;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
